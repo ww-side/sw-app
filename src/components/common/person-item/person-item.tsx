@@ -25,7 +25,7 @@ export default function PersonItem({ person }: { person: PersonType }) {
   };
 
   return (
-    <section className="bg-[#f6f5f4] text-black rounded-md shadow-sm p-4 w-[295px] flex flex-col">
+    <section className="bg-[#f6f5f4] text-black rounded-md shadow-sm p-4 w-[350px] flex flex-col">
       <PersonHeader id={person.id} name={person.name} />
       <PersonCharacteristics data={personCharacteristics} />
       <PersonInformation data={personInformation} />

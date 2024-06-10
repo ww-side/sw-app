@@ -2,28 +2,15 @@
 
 import {
   Background,
+  type Edge,
+  type Node,
   ReactFlow,
   useEdgesState,
   useNodesState,
-  type Node,
-  type EdgeTypes,
-  type NodeTypes,
-  type Edge,
 } from 'reactflow';
 import { BackgroundVariant } from '@reactflow/background';
 import 'reactflow/dist/style.css';
-import {
-  PersonNode,
-  FilmNode,
-  StarshipNode,
-} from '@/components/common/person-details/nodes/';
-
-const edgeTypes = {} satisfies EdgeTypes;
-const nodeTypes = {
-  'person-node': PersonNode,
-  'film-node': FilmNode,
-  'starship-node': StarshipNode,
-} satisfies NodeTypes;
+import { edgeTypes, nodeTypes } from '@/types/reactflow';
 
 export default function PersonDetails({
   initialNodes,
