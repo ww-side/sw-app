@@ -1,8 +1,14 @@
-import { getPeoples } from '@/server/actions/get-peoples.action';
+import Title from '@/components/ui/title';
+import PeopleList from '@/components/common/people-list/people-list';
+import { getPeople } from '@/server/actions/get-people.action';
 
 export default async function Home() {
-  const res = await getPeoples(1);
-  console.log(res.data);
+  const res = await getPeople(1);
 
-  return <main>Work</main>;
+  return (
+    <main>
+      <Title as="h3">Characters from Star Wars🌠</Title>
+      <PeopleList data={res ? res : null} />
+    </main>
+  );
 }
