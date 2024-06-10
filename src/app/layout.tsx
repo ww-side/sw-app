@@ -1,10 +1,9 @@
 import { type ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import cx from 'classnames';
 import Header from '@/components/ui/header';
-import './globals.css';
 import MainLayout from '@/components/layouts/main-layout';
+import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
