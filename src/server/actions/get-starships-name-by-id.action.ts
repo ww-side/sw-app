@@ -10,6 +10,7 @@ export async function getStarshipsNameById(ids: string[]) {
   let allStarships: StarshipType[] = [];
   let nextUrl = baseUrl;
 
+  // I haven't found a solution on how to fetch data without pagination
   while (nextUrl) {
     const response = await api.get(nextUrl);
     const data = response.data;
