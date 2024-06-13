@@ -2,6 +2,9 @@
 
 .idea
 
+# tests
+.swc
+
 # dependencies
 /node_modules
 /.pnp
