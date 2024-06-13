@@ -41,8 +41,8 @@ export default async function PersonPage({ params }: any) {
   const initialEdges = [...filmsEdges, ...starshipEdges];
 
   return (
-    <div data-testid="person-page" className="h-[88vh]">
+    <section data-testid="person-page" className="h-[88vh]">
       <PersonDetails initialNodes={initialNodes} initialEdges={initialEdges} />
-    </div>
+    </section>
   );
 }
