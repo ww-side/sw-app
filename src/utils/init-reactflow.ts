@@ -14,7 +14,7 @@ export function createStarshipNodes(starships: any[]) {
     id: starship.name,
     type: 'starship-node',
     data: { id: starship.id, label: starship.name },
-    position: { x: -1000 + index * 250, y: 415 },
+    position: { x: 10 + index * 250, y: 415 },
   }));
 }
 
@@ -28,13 +28,19 @@ export function createFilmEdges(personName: string, films: FilmType[]) {
 
 export function createStarshipEdges(films: FilmType[], starships: any[]) {
   return films.flatMap(film =>
-    film.starships.map(starshipId => {
-      const starship = starships.find(ship => ship.id === starshipId);
-      return {
-        id: `${film.title}-${starship?.name}`,
-        source: film.title,
-        target: starship?.name,
-      };
-    }),
+    film.starships.reduce(
+      (edges, starshipId) => {
+        const starship = starships.find(ship => ship.id === starshipId);
+        if (starship) {
+          edges.push({
+            id: `${film.title}-${starship.name}`,
+            source: film.title,
+            target: starship.name,
+          });
+        }
+        return edges;
+      },
+      [] as { id: string; source: string; target: string }[],
+    ),
   );
 }
