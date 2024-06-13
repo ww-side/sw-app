@@ -3,5 +3,6 @@
 import api from '@/server/axios-instance';
 
 export async function getPerson(id: number) {
-  return await api.get(`/people/${id}`);
+  const res = await api.get(`/people/${id}`);
+  return res.data;
 }
