@@ -5,10 +5,12 @@ export default function SearchBar({
   onSearch,
   className,
   placeholder = 'Search...',
+  testId,
 }: {
   className?: string;
   placeholder?: string;
   onSearch: (searchTerm: string) => void;
+  testId?: string;
 }) {
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -20,6 +22,7 @@ export default function SearchBar({
 
   return (
     <input
+      data-testid={testId}
       type="text"
       value={searchTerm}
       placeholder={placeholder}

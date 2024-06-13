@@ -22,6 +22,7 @@ export function NavIcon({
         iconClasses.rounded[rounded],
         className,
       )}
+      data-testid={navigation === 'next' && 'pagination-next-btn'}
     >
       {navigation === 'prev' ? (
         <svg

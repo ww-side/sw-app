@@ -67,5 +67,3 @@ export default function Pagination({
     />
   );
 }
-
-Pagination.displayName = 'Pagination';
