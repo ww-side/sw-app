@@ -1,36 +1,18 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Test task for Starnavi
 
-## Getting Started
+Video presentation - https://www.loom.com/share/ba8bb7d5fd5446bf9074fc498f4f489b?sid=3a1a4f4a-ef3a-48cc-b8c2-b3881264f47c  
+Production link - https://sw-app-ten.vercel.app/
 
-First, run the development server:
+When we start the project, we go to the main page and see a list of characters from the API https://sw-api.starnavi.io/. Clicking on the icon will take us to the graph with the selected character without reloading the page.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Before start
+Add ``.env.local`` file in root of project and set ``SERVER_URL=https://sw-api.starnavi.io``
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Get start
+1. ``git clone https://github.com/ww-side/sw-app/``  
+2. ``yarn``
+3. ``yarn start``
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Start tests
+``yarn test``  
+If the tests have not started, but a text window appears in the console, press "a"
