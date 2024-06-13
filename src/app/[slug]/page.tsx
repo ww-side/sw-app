@@ -14,33 +14,35 @@ import { type FilmType } from '@/types/film';
 
 export default async function PersonPage({ params }: any) {
   const person = await getPerson(params.slug);
-  const films = await getFilmsByPersonId(person.data.id);
+  const films = await getFilmsByPersonId(person.id);
   const allStarships = films.results
     .flatMap((film: FilmType) => film.starships)
-    .flat();
+    .filter((starshipId: string) => person.starships.includes(starshipId));
   const starships = await getStarshipsNameById(allStarships);
 
   if (!person && !films && !starships) notFound();
 
-  const personFilms = createFilmNodes(films.results);
+  const personFilmsNodes = createFilmNodes(films.results);
   const starshipsNodes = createStarshipNodes(starships.data);
-  const filmsEdges = createFilmEdges(person.data.name, films.results);
+  const filmsEdges = createFilmEdges(person.name, films.results);
   const starshipEdges = createStarshipEdges(films.results, starships.data);
 
   const initialNodes: Node[] = [
     {
-      id: person.data.name,
+      id: person.name,
       type: 'person-node',
-      data: { label: person.data.name },
-      position: { x: 170 * personFilms.length, y: 25 },
+      data: { label: person.name },
+      position: { x: 170 * personFilmsNodes.length, y: 25 },
     },
-    ...personFilms,
+    ...personFilmsNodes,
     ...starshipsNodes,
   ];
 
   const initialEdges = [...filmsEdges, ...starshipEdges];
 
   return (
-    <PersonDetails initialNodes={initialNodes} initialEdges={initialEdges} />
+    <div data-testid="person-page" className="h-[88vh]">
+      <PersonDetails initialNodes={initialNodes} initialEdges={initialEdges} />
+    </div>
   );
 }

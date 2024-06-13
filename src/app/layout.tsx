@@ -1,4 +1,5 @@
 import { type ReactNode } from 'react';
+import { Toaster } from 'react-hot-toast';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Header from '@/components/ui/header';
@@ -23,6 +24,7 @@ export default function RootLayout({
         <MainLayout>
           <Header />
           {children}
+          <Toaster position="top-center" reverseOrder={false} />
         </MainLayout>
       </body>
     </html>
