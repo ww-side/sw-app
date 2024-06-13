@@ -1,4 +1,5 @@
 import type { FilmType } from '@/types/film';
+import { StarshipType } from '@/types/starship';
 
 export function createFilmNodes(films: FilmType[]) {
   return films.map((film, index) => ({
@@ -9,7 +10,7 @@ export function createFilmNodes(films: FilmType[]) {
   }));
 }
 
-export function createStarshipNodes(starships: any[]) {
+export function createStarshipNodes(starships: StarshipType[]) {
   return starships.map((starship, index) => ({
     id: starship.name,
     type: 'starship-node',
@@ -26,7 +27,10 @@ export function createFilmEdges(personName: string, films: FilmType[]) {
   }));
 }
 
-export function createStarshipEdges(films: FilmType[], starships: any[]) {
+export function createStarshipEdges(
+  films: FilmType[],
+  starships: StarshipType[],
+) {
   return films.flatMap(film =>
     film.starships.reduce(
       (edges, starshipId) => {
