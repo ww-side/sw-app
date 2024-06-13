@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/*scrollbar*/
 ::-webkit-scrollbar {
   width: 4px;
   background-color: transparent;
