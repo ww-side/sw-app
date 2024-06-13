@@ -19,8 +19,8 @@ export default function PersonDetails({
   initialNodes: Node[];
   initialEdges: Edge[];
 }) {
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const [nodes] = useNodesState(initialNodes);
+  const [edges] = useEdgesState(initialEdges);
 
   return (
     <ReactFlow
