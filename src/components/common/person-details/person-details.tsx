@@ -9,8 +9,8 @@ import {
   useNodesState,
 } from 'reactflow';
 import { BackgroundVariant } from '@reactflow/background';
-import 'reactflow/dist/style.css';
 import { edgeTypes, nodeTypes } from '@/types/reactflow';
+import 'reactflow/dist/style.css';
 
 export default function PersonDetails({
   initialNodes,
@@ -24,6 +24,7 @@ export default function PersonDetails({
 
   return (
     <ReactFlow
+      data-testid="person-page"
       defaultNodes={nodes}
       edges={edges}
       nodeTypes={nodeTypes}

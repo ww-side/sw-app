@@ -37,6 +37,7 @@ export default function PeopleList({
   return (
     <section>
       <SearchBar
+        testId="home-search-bar"
         onSearch={handleSearch}
         placeholder="Search by name, height, mass, hair color, skin color, eye color, birth year and gender..."
         className="my-3 w-[600px]"
