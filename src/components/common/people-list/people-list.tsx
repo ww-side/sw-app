@@ -3,6 +3,7 @@
 import { useCallback, useState } from 'react';
 import SearchBar from '@/components/ui/search-bar';
 import Pagination from '@/components/ui/pagination/';
+import Loader from '@/components/ui/loader';
 import PersonItem from '@/components/common/person-item';
 import { propertiesParams } from '@/components/common/people-list/search-params';
 import { getPeople } from '@/server/actions/get-people.action';
@@ -14,12 +15,20 @@ export default function PeopleList({
   data: { count: number; results: PersonType[] };
 }) {
   const [people, setPeople] = useState<PersonType[]>(data.results);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handlePageChange = useCallback(async (page: number) => {
-    const res = await getPeople(page);
-    setPeople(res.results);
-    setCurrentPage(page);
+    try {
+      setIsLoading(true);
+      setCurrentPage(page);
+      const res = await getPeople(page);
+      setPeople(res.results);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setIsLoading(false);
+    }
   }, []);
 
   const handleSearch = (searchTerm: string) => {
@@ -48,10 +57,12 @@ export default function PeopleList({
         current={currentPage}
         onChange={handlePageChange}
       />
-      <section className="flex flex-wrap gap-5 mt-5 pb-5">
-        {people.map(person => (
-          <PersonItem key={person.id} person={person} />
-        ))}
+      <section className="flex flex-wrap gap-5 mt-5 pb-3">
+        {isLoading ? (
+          <Loader size={60} />
+        ) : (
+          people.map(person => <PersonItem key={person.id} person={person} />)
+        )}
       </section>
     </section>
   );
