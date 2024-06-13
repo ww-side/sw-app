@@ -15,8 +15,6 @@ export interface PaginationProps extends RcPaginationProps {
   color?: keyof typeof paginationClasses.variant.flat.color;
   prevIconClassName?: string;
   nextIconClassName?: string;
-  jumpPrevIconClassName?: string;
-  jumpNextIconClassName?: string;
 }
 
 export default function Pagination({
@@ -27,10 +25,6 @@ export default function Pagination({
   prevIcon,
   prevIconClassName,
   nextIconClassName,
-  jumpPrevIcon,
-  jumpNextIcon,
-  jumpPrevIconClassName,
-  jumpNextIconClassName,
   className,
   ...props
 }: PaginationProps) {
