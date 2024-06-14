@@ -8,7 +8,7 @@ import { NavIcon } from '@/components/ui/pagination/nav-icon';
 import { paginationClasses } from '@/data/pagination';
 import 'rc-pagination/assets/index.css';
 
-export interface PaginationProps extends RcPaginationProps {
+interface PaginationProps extends RcPaginationProps {
   outline?: boolean;
   rounded?: keyof typeof paginationClasses.rounded;
   variant?: keyof typeof paginationClasses.variant;
